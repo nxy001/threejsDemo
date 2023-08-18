@@ -2,9 +2,9 @@
  * @Author: NIXY
  * @LastEditors: NIXY
  * @Date: 2023-08-14 11:15:21
- * @LastEditTime: 2023-08-15 18:15:10
+ * @LastEditTime: 2023-08-18 11:32:51
  * @Description: desc
- * @FilePath: \threejsDemo\threejsdemo\src\App.vue
+ * @FilePath: \demo\src\App.vue
 -->
 <template>
   <div class="container">
@@ -49,6 +49,11 @@ const navList = ref([
     name: '架构图',
     id: 'orgTree',
     path: 'orgTree'
+  },
+  {
+    name: '行政区划',
+    id: 'mapTypeOne',
+    path: 'mapTypeOne'
   }
 ])
 // 被激活的菜单

@@ -29,7 +29,7 @@ let scene, camera, renderer, controls,plane,sphere,spotLight;
 const createScene = ()=>{
   // 加载场景
   scene  = new THREE.Scene()
-  scene.background = new THREE.Color( 0xffffff )
+  scene.background = new THREE.Color( 0x000000 )
   camera = new THREE.PerspectiveCamera(
     75,
     sceneDom.value.clientWidth / sceneDom.value.clientHeight,
@@ -57,7 +57,7 @@ const createScene = ()=>{
 }
 // 添加一个平面地板
 function createGround(){
-  let material = new THREE.MeshStandardMaterial( { color: 0x808080 } );
+  let material = new THREE.MeshPhongMaterial( { color: 0x666666} );
   let geometry = new THREE.PlaneGeometry( 2000, 2000 );
   plane = new THREE.Mesh( geometry, material );
   plane.position.set( 0, 0, 1 );
@@ -95,12 +95,12 @@ function createLight(){
   spotLight.intensity = 5
   spotLight.decay = 0.1
   spotLight.distance = 0
-  const texture =  new THREE.TextureLoader().load( require('../assets/disturb.jpg') );
-  texture.minFilter = THREE.LinearFilter;
-  texture.magFilter = THREE.LinearFilter;
-  texture.colorSpace = THREE.SRGBColorSpace;
+  // const texture =  new THREE.TextureLoader().load( require('../assets/disturb.jpg') );
+  // texture.minFilter = THREE.LinearFilter;
+  // texture.magFilter = THREE.LinearFilter;
+  // texture.colorSpace = THREE.SRGBColorSpace;
 
-  spotLight.map = texture
+  // spotLight.map = texture
 
   spotLight.castShadow = true
   spotLight.shadow.mapSize.width = 1024

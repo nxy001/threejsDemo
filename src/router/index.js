@@ -12,6 +12,7 @@ import bufferGeometry from '../part/bufferGeometry.vue'
 import spotLight from '../part/spotLight.vue'
 import objectThreeD from '../part/objectThreeD.vue'
 import orgTree from '../part/orgTree.vue'
+import mapTypeOne from '../part/mapTypeOne.vue'
 
 const routes = [
     {
@@ -38,6 +39,11 @@ const routes = [
       path: '/orgTree',
       name: 'orgTree',
       component: orgTree
+    },
+    {
+      path: '/mapTypeOne',
+      name: 'mapTypeOne',
+      component: mapTypeOne
     }
 ];
 

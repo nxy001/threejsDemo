@@ -2,7 +2,7 @@
  * @Author: NIXY
  * @LastEditors: NIXY
  * @Date: 2023-08-14 11:15:21
- * @LastEditTime: 2023-08-18 11:32:51
+ * @LastEditTime: 2023-08-24 13:54:33
  * @Description: desc
  * @FilePath: \demo\src\App.vue
 -->
@@ -54,6 +54,11 @@ const navList = ref([
     name: '行政区划',
     id: 'mapTypeOne',
     path: 'mapTypeOne'
+  },
+  {
+    name: '特效',
+    id: 'animationScene',
+    path: 'animationScene'
   }
 ])
 // 被激活的菜单

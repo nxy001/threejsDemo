@@ -2,11 +2,12 @@
  * @Author: NIXY
  * @LastEditors: NIXY
  * @Date: 2023-08-18 16:29:36
- * @LastEditTime: 2023-08-18 17:19:45
+ * @LastEditTime: 2023-08-23 14:14:40
  * @Description: desc
  * @FilePath: \demo\src\utils\material.js
  */
 import * as THREE from 'three'
+// import gsap from 'gsap';
 	/**
        * 创建透明墙体材质
        * option =>
@@ -30,8 +31,10 @@ import * as THREE from 'three'
 
       void main() {
           vec3 vPosition = position;
-          v_opacity = mix(1.0, 0.0, position.y / u_height * 1.0) * (1.0 + sin(time) * 0.5);
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(vPosition, 0.5);
+          v_opacity =  (vPosition.z / u_height * 1.0  - 0.5) > 0.0 ? 1.0 : 0.3;
+
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(vPosition, 1);
+
       }
    `;
     // 片元着色器
@@ -40,40 +43,52 @@ import * as THREE from 'three'
       uniform float u_opacity;
       varying float v_opacity;
       void main() {
-        mat4 m4 = mat4(
-          cos(0.52), sin(0.52), 0.0, 0.0,
-          -sin(0.52), cos(0.52), 0.0, 0.0,
-          0.0,        0.0,         1.0, 0.0,
-          0.0,        0.0,         0.0, 1.0
-          );
-          gl_FragColor = vec4(0,1,1,1);
+          gl_FragColor = vec4(1,0,0, v_opacity);
       }
     `;
+      const material = new THREE.ShaderMaterial({
+        uniforms: {
+          u_height: {
+            value: height,
+          },
+          u_opacity: {
+            value: opacity,
+          },
+          u_color: {
+            value: new THREE.Color(color),
+          },
+          time: {
+            value: 0.5,
+          },
+          speed: {
+            value: speed,
+          },
+        },
+        uAnimate: true,
+        transparent: false,
+        depthWrite: true,
+        depthTest: true,
+        side: THREE.DoubleSide,
+        vertexShader: vertexShader,
+        fragmentShader: fragmentShader,
+      });
+      // let i = 0
+      // setInterval(()=>{
+      //   material.uniforms.time.value = i
+      //   i += 0.01
+      //   if(i>=1) {
+      //     i=0
+      //   }
+      // },50)
 
-    return new THREE.ShaderMaterial({
-      uniforms: {
-        u_height: {
-          value: height,
-        },
-        u_opacity: {
-          value: opacity,
-        },
-        u_color: {
-          value: new THREE.Color(color),
-        },
-        time: {
-          value: 0,
-        },
-        speed: {
-          value: speed,
-        },
-      },
-      transparent: true,
-      depthWrite: false,
-      depthTest: false,
-      side: THREE.DoubleSide,
-      vertexShader: vertexShader,
-      fragmentShader: fragmentShader,
-    });
+      // gsap.to(material.uniforms.time, {
+      //   value: 0,
+      //   duration: 2,
+      //   repeat: -1,
+      //   onUpdate: () => {
+      //     // // console.log(material.uniforms.uTime.value);
+      //   },
+      // });
+    return material
   };
   export default createOpacityWallMat

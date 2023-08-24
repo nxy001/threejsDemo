@@ -13,6 +13,7 @@ import spotLight from '../part/spotLight.vue'
 import objectThreeD from '../part/objectThreeD.vue'
 import orgTree from '../part/orgTree.vue'
 import mapTypeOne from '../part/mapTypeOne.vue'
+import animationScene from '../part/animationScene.vue'
 
 const routes = [
     {
@@ -44,6 +45,10 @@ const routes = [
       path: '/mapTypeOne',
       name: 'mapTypeOne',
       component: mapTypeOne
+    },{
+      path: '/animationScene',
+      name: 'animationScene',
+      component: animationScene
     }
 ];
 

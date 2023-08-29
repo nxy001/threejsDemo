@@ -2,7 +2,7 @@
  * @Author: NIXY
  * @LastEditors: NIXY
  * @Date: 2023-08-14 11:15:21
- * @LastEditTime: 2023-08-24 13:54:33
+ * @LastEditTime: 2023-08-29 09:25:28
  * @Description: desc
  * @FilePath: \demo\src\App.vue
 -->
@@ -59,6 +59,16 @@ const navList = ref([
     name: '特效',
     id: 'animationScene',
     path: 'animationScene'
+  },
+  {
+    name: '粒子系统',
+    id: 'particleScene',
+    path: 'particleScene'
+  },
+  {
+    name: '辉光',
+    id: 'bloomScene',
+    path: 'bloomScene'
   }
 ])
 // 被激活的菜单

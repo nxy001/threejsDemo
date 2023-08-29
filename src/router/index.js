@@ -2,9 +2,9 @@
  * @Author: NIXY
  * @LastEditors: NIXY
  * @Date: 2023-08-14 14:26:46
- * @LastEditTime: 2023-08-15 16:30:40
+ * @LastEditTime: 2023-08-29 09:25:59
  * @Description: desc
- * @FilePath: \threejsDemo\threejsdemo\src\router\index.js
+ * @FilePath: \demo\src\router\index.js
  */
 import { createRouter, createWebHistory } from 'vue-router';
 import loadScene from '../part/loadScene.vue'
@@ -14,6 +14,8 @@ import objectThreeD from '../part/objectThreeD.vue'
 import orgTree from '../part/orgTree.vue'
 import mapTypeOne from '../part/mapTypeOne.vue'
 import animationScene from '../part/animationScene.vue'
+import particleScene from '../part/particleScene.vue'
+import bloomScene from '../part/bloomScene.vue'
 
 const routes = [
     {
@@ -49,6 +51,14 @@ const routes = [
       path: '/animationScene',
       name: 'animationScene',
       component: animationScene
+    },{
+      path: '/particleScene',
+      name: 'particleScene',
+      component: particleScene
+    },{
+      path: '/bloomScene',
+      name: 'bloomScene',
+      component: bloomScene
     }
 ];
 
